@@ -1,6 +1,6 @@
 {
   "name": "docpad-plugin-hamlcoffee",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "description": "DocPad plugin for rendering hamlcoffee files",
   "homepage": "https://github.com/ashnur/docpad-plugin-hamlcoffee/",
   "keywords": [
@@ -31,13 +31,14 @@
   },
   "engines": {
     "node": ">=0.8.x",
-    "docpad": "6.x"
+    "docpad": "~6"
   },
   "dependencies": {
     "haml-coffee": "~1.9.1"
   },
   "devDependencies": {
-    "coffee-script": "~1.4.0"
+    "coffee-script": "~1.4.0",
+    "joe-reporter-console": "~1.2.1"
   },
   "scripts": {
     "test": "node ./test/hamlcoffee.test.js"
