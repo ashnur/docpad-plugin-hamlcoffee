@@ -56,10 +56,6 @@ module.exports = function(BasePlugin){
             }
         }
 
-        //HamlCoffeePlugin.prototype.isEnabled = function(){
-        //    return this.enable !== false
-        //}
-
         return HamlCoffeePlugin
 
     })(BasePlugin)
