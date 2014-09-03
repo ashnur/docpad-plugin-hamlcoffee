@@ -50,7 +50,7 @@ module.exports = function(BasePlugin){
                 , outExtension = opts.outExtension
             ;
             if ( (inExtension === 'hamlc') && (outExtension === 'html') ) {
-                opts.content = this.renderHamlC(opts, next)
+                this.renderHamlC(opts, next)
             } else {
                 return next()
             }
