@@ -32,14 +32,6 @@ module.exports = function(BasePlugin){
 
         HamlCoffeePlugin.prototype.name = 'hamlcoffee'
 
-        HamlCoffeePlugin.prototype.renderHamlC = function(opts, next){
-            var templateData = opts.templateData
-                , hamlcoffee = require('haml-coffee')
-                ;
-            opts.content = hamlcoffee.compile(opts.content)(templateData)
-            next()
-        }
-
         HamlCoffeePlugin.prototype.config = {
             hamlcoffee: { format: false }
             , environments: { development: { hamlcoffee: { format: true } } }
@@ -50,15 +42,14 @@ module.exports = function(BasePlugin){
                 , outExtension = opts.outExtension
             ;
             if ( (inExtension === 'hamlc') && (outExtension === 'html') ) {
-                opts.content = this.renderHamlC(opts, next)
-            } else {
-                return next()
-            }
-        }
+                var templateData = opts.templateData;
+                var hamlcoffee = require('haml-coffee');
 
-        //HamlCoffeePlugin.prototype.isEnabled = function(){
-        //    return this.enable !== false
-        //}
+                opts.content = hamlcoffee.compile(opts.content)(templateData)
+            }
+
+            return next();
+        }
 
         return HamlCoffeePlugin
 
